@@ -58,4 +58,3 @@ function EditableTodo({ todo, update, remove }) {
 }
 
 export default EditableTodo;
-export { toggleEdit };

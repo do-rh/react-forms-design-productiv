@@ -27,14 +27,6 @@ it("renders edit and delete buttons", function () {
         className="EditableTodo-delBtn btn-link btn btn-sm text-danger`);
 });
 
-xit("successfully calls update when clicked", function () {
-    const { container, debug } = render(<EditableTodo todo={TEST_TODO} remove={remove} update={update} />);
-    // const updateBtn = document.getElementsByClassName("EditableTodo-toggle btn-link btn btn-sm")[0];
-    // fireEvent.click(updateBtn);
-    // console.log(updateBtn)
-    // expect(update).toBeCalledTimes(1);
-});
-
 it("successfully calls delete function (from prop) when clicked", function () {
     const { container, debug } = render(<EditableTodo todo={TEST_TODO} remove={remove} update={update} />);
     const deleteBtn = document.getElementsByClassName("EditableTodo-delBtn")[0];
@@ -42,20 +34,4 @@ it("successfully calls delete function (from prop) when clicked", function () {
     expect(remove).toBeCalledTimes(1);
 });
 
-
-// it("shows user msg if todo list is empty", function () {
-//     const { container, debug } = render(<EditableTodo todos={[]} remove={remove} update={update} />);
-//     expect(container).toContainHTML('<span className="text-muted">You have no todos.</span>');
-//     expect(container).not.toContainHTML('className="EditableTodo-toggle btn-link btn btn-sm"');
-// });
-
-
-it("unittest for toggleEdit", function () {
-    let isEditing = true;
-    toggleEdit();
-    expect(isEditing).toBe(false);
-
-    isEditing = false;
-    toggleEdit();
-    expect(isEditing).toBe(true);
-});
+//TODO: add test for form rendering
