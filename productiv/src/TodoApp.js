@@ -21,15 +21,12 @@ function TodoApp({ initialTodos }) {
 
   /** add a new todo to list */
   function create(newTodo) {
-    console.log("newtod prio", newTodo.priority);
-    //TODO: could just copy the objects from the old since we're not actually changing old data
     setTodos(todos => {
-      const todosCopy = todos.map(todo => todo);
+      const todosCopy = todos.slice();
       todosCopy.push({
         ...newTodo,
         id: uuid()
       });
-      console.log("todoCopy", todosCopy);
       return todosCopy;
     });
   }
@@ -38,9 +35,7 @@ function TodoApp({ initialTodos }) {
   function update(updatedTodo) {
 
     setTodos(oldTodos => {
-      // QUESTION: do we need to make a copy of updatedTodo?
-      //TODO: could just use slice
-      const oldTodosCopy = oldTodos.map(todo => { return { ...todo } });
+      const oldTodosCopy = oldTodos.slice();
       const todoIdx = oldTodosCopy.findIndex(todo => todo.id === updatedTodo.id);
       oldTodosCopy[todoIdx] = updatedTodo;
       return oldTodosCopy;
@@ -53,21 +48,21 @@ function TodoApp({ initialTodos }) {
       oldTodos.filter(todo => todo.id !== id)
     );
   }
-
-  //TODO: make todos.length===0 a const 
+  const isEmpty = (todos.length === 0);
+  
   return (
     <main className="TodoApp">
       <div className="row">
 
         <div className="col-md-6">
-          {todos.length !== 0
+          {!isEmpty
             ? <EditableTodoList todos={todos} update={update} remove={remove} />
             : <span className="text-muted">You have no todos.</span>
           }
         </div>
 
         <div className="col-md-6">
-          {todos.length !== 0
+          {!isEmpty
             ? <section className="mb-4">
               <h3>Top Todo</h3>
               <TopTodo todos={todos} />

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div>
+  <div
+    class="EditableTodo"
+  >
+    <div
+      class="mb-3"
+    >
+      <div
+        class="Todo"
+      >
+        <div>
+          <b>
+            test title
+          </b>
+           
+          <small>
+            Priority: 
+            1
+          </small>
+        </div>
+        <div>
+          <small>
+            meow meow meow
+          </small>
+        </div>
+      </div>
+      <div
+        class="float-right text-sm-right"
+      >
+        <button
+          class="EditableTodo-toggle btn-link btn btn-sm"
+        >
+          Edit
+        </button>
+        <button
+          class="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+        >
+          Del
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

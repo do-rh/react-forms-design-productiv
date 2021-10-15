@@ -13,12 +13,12 @@ import TodoForm from "./TodoForm";
  */
 
 function EditableTodo({ todo, update, remove }) {
-  const [isEditing, setEdit] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const { title, description, priority } = todo;
 
   /** Toggle if this is being edited */
   function toggleEdit() {
-    setEdit(isEditing => !isEditing);
+    setIsEditing(isEditing => !isEditing);
   }
 
   /** Call remove fn passed to this. */
@@ -28,7 +28,6 @@ function EditableTodo({ todo, update, remove }) {
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
   function handleSave(formData) {
-    //call update() fn in editableToDoList
     update(formData);
     toggleEdit();
   }
@@ -59,3 +58,4 @@ function EditableTodo({ todo, update, remove }) {
 }
 
 export default EditableTodo;
+export { toggleEdit };
